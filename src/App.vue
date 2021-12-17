@@ -1,10 +1,28 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="wrapper">
+    <div v-for="airport in airports" :key="airport.abbreviation">
+      <airport-card :airport="airport"/>
+    </div>
   </div>
-  <router-view/>
 </template>
+
+<script>
+import {
+  ref
+} from 'vue'
+import allAirports from '@/data/airports.js'
+import AirportCard from '@/components/AirportCard.vue'
+
+export default {
+  components: {
+    AirportCard
+  },
+  setup() {
+    const airports = ref(allAirports)
+    return {airports}
+  }
+}
+</script>
 
 <style>
 #app {
@@ -13,18 +31,19 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin-top: 60px;
 }
 
-#nav {
-  padding: 30px;
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+p,
+h3 {
+  grid-column: span 3;
 }
 </style>
