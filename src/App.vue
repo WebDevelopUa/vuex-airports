@@ -1,15 +1,46 @@
 <template>
   <div class="wrapper">
+
+    <h1>State:</h1>
+
+    <ul>
+      <li>
+        <em>dot notion:</em> {{ $store.state.firstName }} {{ $store.state.lastName }}
+      </li>
+      <li>
+        <em>getters:</em> {{ $store.getters.fullName }}
+      </li>
+      <li> ...</li>
+    </ul>
+    <br/>
+
     <div v-for="airport in airports" :key="airport.abbreviation">
+
+      <!-- 5) execute an action -->
+      <airport-card @click="$store.dispatch('addToFav', airport)"
+                    :airport="airport"/>
+    </div>
+
+
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 v-if="$store.state.fav.length">Favorites</h2>
+    <div v-for="airport in $store.state.fav" :key="airport.abbreviation">
       <airport-card :airport="airport"/>
     </div>
   </div>
+
+
 </template>
 
 <script>
 import {
   ref
 } from 'vue'
+
 import allAirports from '@/data/airports.js'
 import AirportCard from '@/components/AirportCard.vue'
 

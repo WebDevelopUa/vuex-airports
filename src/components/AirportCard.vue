@@ -1,5 +1,5 @@
 <template>
-  <div className="airport">
+  <div class="airport">
     <p>{{ airport.abbreviation }}</p>
     <p>{{ airport.name }}</p>
     <p>{{ airport.city }}, {{ airport.state }}</p>
