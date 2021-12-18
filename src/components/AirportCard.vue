@@ -23,6 +23,8 @@ export default {
   border-radius: .5rem;
   padding: 1rem;
   margin-bottom: 1rem;
+  background-color: lightgreen;
+  cursor: pointer;
 }
 
 .airport p:first-child {

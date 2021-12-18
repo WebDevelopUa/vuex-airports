@@ -5,39 +5,44 @@
 
     <ul>
       <li>
-        <em>dot notion:</em> {{ $store.state.user.firstName }} {{ $store.state.user.lastName }}
+        <em>dot notion:</em> {{ $store.state.firstName }} {{ $store.state.lastName }}
       </li>
       <li>
-        <em>getters:</em> {{ $store.getters['user/fullName'] }}
+        <em>getters:</em> {{ $store.getters.fullName }}
       </li>
+      <li> ...</li>
     </ul>
     <br/>
 
     <div v-for="airport in airports" :key="airport.abbreviation">
 
       <!-- 5) execute an action -->
-      <airport-card @click="$store.dispatch('airports/addToFav', airport)"
+      <airport-card @click="$store.dispatch('addToFav', airport)"
                     :airport="airport"/>
     </div>
 
+
   </div>
+
   <hr/>
+
   <div>
-    <h2 v-if="$store.state.airports.fav.length">Favorites</h2>
-    <div v-for="airport in $store.state.airports.fav" :key="airport.abbreviation">
+    <h2 v-if="$store.state.fav.length">Favorites</h2>
+    <div v-for="airport in $store.state.fav" :key="airport.abbreviation">
       <airport-card :airport="airport"/>
     </div>
   </div>
+
 
 </template>
 
 <script>
 import {
   ref
-} from 'vue';
+} from 'vue'
 
-import allAirports from '@/data/airports.js';
-import AirportCard from '@/components/AirportCard.vue';
+import allAirports from '@/data/airports.js'
+import AirportCard from '@/components/AirportCard.vue'
 
 export default {
   components: {
@@ -45,9 +50,7 @@ export default {
   },
   setup() {
     const airports = ref(allAirports)
-    return {
-      airports
-    }
+    return {airports}
   }
 }
 </script>

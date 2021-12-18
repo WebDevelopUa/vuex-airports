@@ -1,6 +1,8 @@
 # vuex-airports
 
 * [How To Manage State in a Vue.js Application with Vuex](https://www.digitalocean.com/community/tutorials/how-to-manage-state-in-a-vue-js-application-with-vuex)
+* [Vuex Modules](https://vuex.vuejs.org/ru/guide/modules.html)
+* [Vuex Modules Video](https://scrimba.com/scrim/cqKK4psq)
 
 ----------------------
 These properties reflect the type of data the store holds:
@@ -20,6 +22,7 @@ These properties reflect the type of data the store holds:
 * the _action_ _name_
 * the _payload_ data that you are sending to the action
 
+----------------------
 ----------------------
 
 ## Project setup
